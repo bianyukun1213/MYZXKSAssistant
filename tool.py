@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
+import os
+import sys
 import json
 
-with open('input.json', 'r', encoding='utf-8') as f:
+script_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
+with open(script_path+'\input.json', 'r', encoding='utf-8') as f:
     data = f.read()
 lst = []
 loaded = json.loads(data)
@@ -44,5 +47,5 @@ for x, element in enumerate(loaded):
     question['title'] = element['wt']
     lst.append(question)
 final = json.dumps(lst, ensure_ascii=False)
-with open('data.json', 'w', encoding='utf-8') as a:
+with open(script_path+'\data.json', 'w', encoding='utf-8') as a:
     a.write(final)

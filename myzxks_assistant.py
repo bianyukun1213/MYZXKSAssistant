@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
+import os
+import sys
 import json
 from fuzzywuzzy import process
 from fuzzywuzzy import fuzz
@@ -40,7 +42,8 @@ def search():
 if(__name__ == '__main__'):
     print('欢迎使用 Hollis(his2nd.life) 的马院考试助手！')
     print('请访问 https://github.com/bianyukun1213/MYZXKSAssistant 阅读使用文档。')
-    with open('data.json', 'r', encoding='utf-8') as f:
+    script_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
+    with open(script_path+'\data.json', 'r', encoding='utf-8') as f:
         data = f.read()
     loaded = json.loads(data)
     titles = []
