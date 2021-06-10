@@ -10,24 +10,34 @@ from flask import request, jsonify
 app = flask.Flask(__name__)
 
 
-@app.route('/search', methods=['GET'])
+@app.route('/myzxks-assistant/search', methods=['GET'])
 def search():
     if 'title' in request.args:
         print('收到格式正确的请求！')
-        title = request.args['title']
-        print('标题：', title)
+        arg_title = request.args['title']
+        print('---\n参数中的标题：\n%s' % arg_title)
         global titles
         global answers
-        match = process.extractOne(title, titles)[0]
-        print('匹配结果：', match)
-        answer = answers[titles.index(match)]
-        print('正确答案：', answer.replace('\n', '\\n'))
+        result = process.extractOne(arg_title, titles)
+        match_title = result[0]
+        match_ratio = result[1]
+        print('匹配标题：\n%s' % match_title)
+        print('匹配率：\n%d%%' % match_ratio)
+        for i, element_answer in enumerate(answers):
+            for j, element_title in enumerate(titles):
+                if element_title == match_title:
+                    break
+            if i == j:
+                answer = element_answer
+                break
+        print('答案：\n%s\n---' % answer.replace('\n', '\\n'))
         return answer, 200, [('Content-Type', 'text/plain; charset=utf-8')]
-    return '未提供题干！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
+    return '缺失参数“title”！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
 
 
 if(__name__ == '__main__'):
     print('欢迎使用 Hollis(his2nd.life) 的马院考试助手！')
+    print('请访问 https://github.com/bianyukun1213/MYZXKSAssistant 阅读使用文档。')
     with open('data.json', 'r', encoding='utf-8') as f:
         data = f.read()
     loaded = json.loads(data)
@@ -36,5 +46,5 @@ if(__name__ == '__main__'):
     for question in loaded:
         titles.append(question['title'])
         answers.append(question['answer'])
-    print(len(loaded), ' 条数据已加载，即将运行服务。')
+    print('%s 条数据已加载，即将运行服务。' % len(loaded))
     app.run()
