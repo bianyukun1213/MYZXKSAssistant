@@ -49,4 +49,5 @@ if(__name__ == '__main__'):
         titles.append(question['title'])
         answers.append(question['answer'])
     print('%s 条数据已加载，即将运行服务。' % len(loaded))
+    # app.run(host='0.0.0.0', port=5000)
     app.run()
