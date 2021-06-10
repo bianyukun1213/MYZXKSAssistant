@@ -14,7 +14,9 @@ app = flask.Flask(__name__)
 def search():
     if 'title' in request.args:
         print('收到格式正确的请求！')
-        arg_title = request.args['title']
+        arg_title = request.args['title'].strip()
+        if arg_title == '':
+            return '缺失参数“title”！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
         print('---\n参数中的标题：\n%s' % arg_title)
         global titles
         global answers
