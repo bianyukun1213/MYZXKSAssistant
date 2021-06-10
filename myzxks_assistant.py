@@ -23,7 +23,7 @@ def search():
         result = process.extractOne(arg_title, titles)
         match_title = result[0]
         match_ratio = result[1]
-        print('匹配标题：\n%s' % match_title)
+        print('匹配到的标题：\n%s' % match_title)
         print('匹配率：\n%d%%' % match_ratio)
         for i, element_answer in enumerate(answers):
             for j, element_title in enumerate(titles):
