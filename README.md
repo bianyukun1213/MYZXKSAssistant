@@ -8,7 +8,7 @@
 
 &emsp;&emsp;将 `Fiddler` 抓取的试题数据整理为 `input.json` 文件——提取 `text` 部分，使用 `"` 替换 `\"`，使用 `\` 替换 `\\`，去除试题以外的信息，并将单选、多选、判断等多种类型的试题聚合在一起。将该文件放置于脚本根目录，运行 `python .\tool.py` 命令， 工具脚本将自动生成适用于马院考试助手的 `data.json` 题库文件。需要注意的是，目前所有的试题都会被当做“马原”科目的试题进行处理，如果您的试题属于其他科目，需要自行修改 `tool.py` 文件。包含多个科目试题的题库文件需要手动整理。
 
-&emsp;&emsp;在启动马院考试助手之前，运行 `pip install -i requirements.txt` 以安装依赖项。为了在公网环境中使用，请将 `myzxks_assistant.py` 文件中 `# app.run(host='0.0.0.0', port=5000)` 一行取消注释，并将 `app.run()` 一行注释掉。
+&emsp;&emsp;在启动马院考试助手之前，先安装 `Microsoft Visual C++ 14.0`，然后运行 `pip install -i requirements.txt` 以安装依赖项。为了在公网环境中使用，请将 `myzxks_assistant.py` 文件中 `# app.run(host='0.0.0.0', port=5000)` 一行取消注释，并将 `app.run()` 一行注释掉。
 
 &emsp;&emsp;运行 `python .\myzxks_assistant.py` 命令来启动马院考试助手，马院考试助手将加载题库文件并监听 HTTP GET 请求，完整的 URL 是 `http://您的主机:5000/myzxks-assistant/search?title=题目`。为了正常使用马院考试助手，您需要提供欲查找答案的试题的题目作为前文中提到的 `title` 参数。由于使用了 `fuzzywuzzy` 库，马院考试助手支持模糊搜索，因此具有一定的容错性，可在 `title` 参数具有少量拼写错误的情况下查找到正确答案，但您仍应提供合适的参数——只包含完整的题目——以获得最佳的匹配效果。
 

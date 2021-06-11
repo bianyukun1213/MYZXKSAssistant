@@ -19,13 +19,13 @@ def search():
         if arg_title == '':
             return '缺失参数“title”！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
         print('收到格式正确的请求！')
-        print('---\n参数中的标题：\n%s' % arg_title)
+        print('---\n参数中的题目：\n%s' % arg_title)
         global titles
         global answers
         result = process.extractOne(arg_title, titles)
         match_title = result[0]
         match_ratio = result[1]
-        print('匹配到的标题：\n%s' % match_title)
+        print('匹配到的题目：\n%s' % match_title)
         print('匹配率：\n%d%%' % match_ratio)
         for i, element_answer in enumerate(answers):
             for j, element_title in enumerate(titles):
