@@ -28,19 +28,19 @@ for x, element in enumerate(loaded):
     ansstr = element['da']
     if 'A' in ansstr:
         question['answer'] = ''.join(
-            [question['answer'], element['xx1'][2:]+'\n'])
+            [question['answer'], element['xx1'][2:].strip()+'\n'])
     if 'B' in ansstr:
         question['answer'] = ''.join(
-            [question['answer'], element['xx2'][2:]+'\n'])
+            [question['answer'], element['xx2'][2:].strip()+'\n'])
     if 'C' in ansstr:
         question['answer'] = ''.join(
-            [question['answer'], element['xx3'][2:]+'\n'])
+            [question['answer'], element['xx3'][2:].strip()+'\n'])
     if 'D' in ansstr:
         question['answer'] = ''.join(
-            [question['answer'], element['xx4'][2:]+'\n'])
+            [question['answer'], element['xx4'][2:].strip()+'\n'])
     if 'E' in ansstr:
         question['answer'] = ''.join(
-            [question['answer'], element['xx5'][2:]+'\n'])
+            [question['answer'], element['xx5'][2:].strip()+'\n'])
     if ansstr == '对' or ansstr == '错':
         question['answer'] = ansstr
     question['answer'] = question['answer'].strip()
