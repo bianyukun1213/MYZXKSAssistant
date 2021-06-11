@@ -34,7 +34,7 @@ def search():
             if i == j:
                 answer = element_answer
                 break
-        print('答案：\n%s\n---' % answer.replace('\n', '\\n'))
+        print('答案：\n%s\n---' % answer)
         return ''.join([match_title, '\n---\n', answer]), 200, [('Content-Type', 'text/plain; charset=utf-8')]
     return '缺失参数“title”！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
 
