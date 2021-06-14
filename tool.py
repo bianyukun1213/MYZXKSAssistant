@@ -11,7 +11,6 @@ files = glob.glob(script_path+'\inputs\input_*.json')
 lst = []
 index = 1
 for file_path in files:
-    print(file_path)
     with open(file_path, 'r', encoding='utf-8') as f:
         data = f.read()
     loaded = json.loads(data)
