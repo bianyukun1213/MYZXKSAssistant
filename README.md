@@ -8,7 +8,7 @@
 
 &emsp;&emsp;使用 `Fiddler` 抓取试题数据（具体方法不阐述，要一步一步讲明白太费劲儿了）并整理——提取 `text` 部分，使用 `"` 替换 `\"`，使用 `\` 替换 `\\`，去除试题以外的信息，并将单选、多选、判断等多种类型的试题聚合在一起，以 `UTF-8` 编码保存为 `input_学科.json` 文件，存放于 `inputs` 子目录下。您可以参考本代码库下的文件以帮助自己理解格式要求。运行 `python .\tool.py` 命令， 工具脚本将自动生成适用于马院考试助手的 `data.json` 题库文件。
 
-&emsp;&emsp;在启动马院考试助手之前，先安装 `Microsoft Visual C++ 14.0`（下载地址参看 [疑难杂症](https://github.com/bianyukun1213/MYZXKSAssistant#%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87) 部分），然后运行 `pip install -r requirements.txt` 以安装依赖项。为了在您自己的服务器上使用，请将 `myzxks_assistant.py` 文件中 `# @app.route('/myzxks-assistant/search', methods=['GET'])` 和 `# app.run(host='0.0.0.0', port=5000)` 两行取消注释，并将 `@app.route('/projects/myzxks-assistant/search', methods=['GET'], subdomain='apps')` 和 `app.config['SERVER_NAME'] = 'hollisdevhub.com:5000'` 两行注释掉。
+&emsp;&emsp;在启动马院考试助手之前，先安装 `Microsoft Visual C++ 14.0`（下载地址参看 [疑难杂症与 FAQ](https://github.com/bianyukun1213/MYZXKSAssistant#%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E4%B8%8E-faq) 部分），然后运行 `pip install -r requirements.txt` 以安装依赖项。为了在您自己的服务器上使用，请将 `myzxks_assistant.py` 文件中 `# @app.route('/myzxks-assistant/search', methods=['GET'])` 和 `# app.run(host='0.0.0.0', port=5000)` 两行取消注释，并将 `@app.route('/projects/myzxks-assistant/search', methods=['GET'], subdomain='apps')` 和 `app.config['SERVER_NAME'] = 'hollisdevhub.com:5000'` 两行注释掉。
 
 &emsp;&emsp;运行 `python .\myzxks_assistant.py` 命令来启动马院考试助手，马院考试助手将加载题库文件并监听 HTTP GET 请求，完整的 URL 是 `http://您的主机:5000/myzxks-assistant/search?title=题目`。为了正常使用马院考试助手，您需要提供欲查找答案的试题的题目作为前文中提到的 `title` 参数。由于使用了 `fuzzywuzzy` 库，马院考试助手支持模糊搜索，因此具有一定的容错性，可在 `title` 参数具有少量拼写错误的情况下查找到正确答案，但您仍应提供合适的参数——只包含完整的题目——以获得最佳的匹配效果。
 
