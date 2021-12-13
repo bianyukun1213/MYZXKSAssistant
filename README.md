@@ -50,6 +50,6 @@
 
 &emsp;&emsp;从原理上考虑是可以用的，但我不保证没有反作弊检测。
 
-&emsp;&emsp;如果需要从知到导入题库（我假设您有能力执行接下来的操作），先登录智慧树网站，在 Cookie 中找到包含 `exitRecod_` 字样的项目，`_` 后面的字符串即为您的 `UUID`，先记下来，然后进入您要导出题库的课程，从 Url 获取 `courseId`，接下来运行 `tool_zhihuishu.py`，第一个参数为 `UUID`，第二个参数为 `courseId`，程序会自动爬取并在 `from_zhihuishu` 目录下生成 `output_<COURSEID>.json` 文件，拷贝这个文件到 `inputs` 目录并重命名为 `input_zhihuishu_学科.json`，运行 `tool.py` 生成题库文件。
+&emsp;&emsp;如果需要从知到导入题库（我假设您有能力执行接下来的操作），先登录智慧树网站，在 Cookie 中找到包含 `exitRecod_` 字样的项目，`_` 后面的字符串即为您的 `UUID`，先记下来，然后进入您要导出题库的课程，从 Url 获取 `courseId`，接下来运行 `tool_zhihuishu.py`，第一个参数为 `UUID`，第二个参数为 `courseId`，程序会自动爬取并在 `from_zhihuishu` 目录下生成 `output_<COURSE_ID>.json` 文件，拷贝这个文件到 `inputs` 目录并重命名为 `input_zhihuishu_学科.json`，运行 `tool.py` 生成题库文件。
 
 &emsp;&emsp;实际上，对知到抓包可难多了，我用的所有手段都不怎么好使，最后能抓到 Url 也是碰巧，我无法保证以后还能导出知到的题库。😔
