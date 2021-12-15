@@ -14,7 +14,7 @@
 
 ## 啰嗦！根本不用那么费事儿
 
-&emsp;&emsp;马院考试助手仅仅为一个简易搜题 Web API，**Android 平台**下配合 `FV悬浮球` 的“自定义任务”功能使用更加直观、方便和快捷。在 `FV悬浮球` 的 `任务分享平台` 搜索并安装 `USTH 马院考试搜题` 自定义任务即可。
+&emsp;&emsp;马院考试助手仅仅为一个简易搜题 Web API，**Android 平台**下配合 `FV悬浮球` 的“自定义任务”功能使用更加直观、方便和快捷。在 `FV悬浮球` 的 `任务分享平台` 搜索并安装 `USTH 马院考试搜题` 自定义任务，再安装 [简体中文识别库](https://github.com/bianyukun1213/MYZXKSAssistant#usth-%E9%A9%AC%E9%99%A2%E8%80%83%E8%AF%95%E6%90%9C%E9%A2%98-%E6%97%A0%E6%B3%95%E6%88%90%E5%8A%9F%E8%AF%86%E5%88%AB%E5%B1%8F%E5%B9%95%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97) 即可。
 
 &emsp;&emsp;对于 **iOS 平台**，使用 [USTH 马院考试搜题](https://www.icloud.com/shortcuts/818a16f6fefc432780de5c6a37c68d36) 快捷指令。快捷指令相较于自定义任务少了悬浮球、光学识别功能，使用时需手动输入题目。
 
