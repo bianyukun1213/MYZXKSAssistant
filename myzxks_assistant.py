@@ -10,9 +10,8 @@ from flask import request, jsonify
 
 app = flask.Flask(__name__)
 
-
-# @app.route('/myzxks-assistant/search', methods=['GET'])
 @app.route('/projects/myzxks-assistant/search', methods=['GET'], subdomain='apps')
+# @app.route('/projects/myzxks-assistant/search', methods=['GET'], subdomain='nas')
 def search():
     if 'title' in request.args:
         arg_title = request.args['title'].strip()
@@ -53,5 +52,6 @@ if(__name__ == '__main__'):
         answers.append(question['answer'])
     print('%s 条数据已加载，即将运行服务。' % len(loaded))
     app.config['SERVER_NAME'] = 'hollisdevhub.com:5000'
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\6235432_apps.hollisdevhub.com.pem', 'D:\\SSLCerts\\6235432_apps.hollisdevhub.com.key'))
+    # app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\7172095_nas.hollisdevhub.com.pem', 'D:\\SSLCerts\\7172095_nas.hollisdevhub.com.key'))
     # app.run(host='0.0.0.0', port=5000)
