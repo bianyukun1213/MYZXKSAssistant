@@ -8,7 +8,7 @@ import json
 import requests
 
 LIST_URL = 'https://hike-examstu.zhihuishu.com/zhsathome/randomExercise/queryAnswerSheet?courseId=<COURSE_ID>&isFirst=true&randomExerciseStyle=0&uuid=<UUID>'
-DETAIL_URL = 'https://hike-examstu.zhihuishu.com/zhsathome/randomExercise/queryRandomExerciseDetail?courseId=<COURSE_ID>&questionId=<QUESTION_ID>&times=1&randomExerciseStyle=0&uuid=<UUID>'
+DETAIL_URL = 'https://hike-examstu.zhihuishu.com/zhsathome/randomExercise/queryRandomExerciseDetail?courseId=<COURSE_ID>&questionId=<QUESTION_ID>&times=<TIMES>&randomExerciseStyle=0&uuid=<UUID>'
 
 args = sys.argv
 course_id = ''
@@ -21,13 +21,14 @@ if len(args) == 3:
     exercises = requests.get(list_url).json()['rt']
     exercise_count = exercises['randomExerciseCount']
     exercise_list = exercises['lists']
+    exercise_times = exercises['times']
     print('获取到 %d 道习题。' % exercise_count)
     details = []
     for index, exercise in enumerate(exercise_list):
         print('正在采集习题 %d……(%d/%d)' %
               (exercise['exerciseId'], index + 1, exercise_count))
         detail_url = DETAIL_URL.replace('<COURSE_ID>', course_id).replace(
-            '<UUID>', uuid).replace('<QUESTION_ID>', str(exercise['exerciseId']))
+            '<UUID>', uuid).replace('<QUESTION_ID>', str(exercise['exerciseId'])).replace('<TIMES>', str(exercise_times))
         detail = requests.get(detail_url).json()['rt']
         details.append(detail)
         time.sleep(1)

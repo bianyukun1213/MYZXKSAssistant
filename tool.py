@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import os
+import re
 import sys
 import html
 import json
@@ -56,19 +57,20 @@ for file_path in files:
             question['title'] = element['wt']
 
         else:
+            pattern = re.compile(r'<[^>]+>',re.S)
             question['subject'] = os.path.splitext(file_path)[0].split('_')[2]
             if element['questionTypeId'] == 1:
                 question['type'] = '单选'
                 for opt in element['optionList']:
                     if opt['isCorrect'] == 1:
-                        question['answer'] = html.unescape(opt['content'])
+                        question['answer'] = pattern.sub('', html.unescape(opt['content']))
                         break
             elif element['questionTypeId'] == 2:
                 question['type'] = '多选'
                 for opt in element['optionList']:
                     if opt['isCorrect'] == 1:
                         question['answer'] = ''.join(
-                            [question['answer'], html.unescape(opt['content'])+'\n'])
+                            [question['answer'], pattern.sub('', html.unescape(opt['content']))+'\n'])
                 question['answer'] = question['answer'].strip()
             else:
                 question['type'] = '判断'
@@ -76,7 +78,7 @@ for file_path in files:
                     question['answer'] = '错'
                 else:
                     question['answer'] = '对'
-            question['title'] = html.unescape(element['content'])
+            question['title'] = pattern.sub('', html.unescape(element['content']))
         lst.append(question)
 final = json.dumps(lst, ensure_ascii=False, indent=4)
 with open(script_path+'\data.json', 'w', encoding='utf-8') as a:
