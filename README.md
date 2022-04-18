@@ -10,7 +10,7 @@
 
 &emsp;&emsp;在启动马院考试助手之前，先安装 `Microsoft Visual C++ 14.0`（下载地址参看 [疑难杂症与 FAQ](https://github.com/bianyukun1213/MYZXKSAssistant#%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E4%B8%8E-faq) 部分），然后运行 `pip install -r requirements.txt` 以安装依赖项。**为了在您自己的服务器上使用，请修改源代码中域名、路由和 SSL 相关的部分**。
 
-&emsp;&emsp;运行 `python .\myzxks_assistant.py` 命令来启动马院考试助手，马院考试助手将加载题库文件并监听 HTTP GET 请求，完整的 URL 是 `http://您的主机:5000/myzxks-assistant/search?title=题目`。为了正常使用马院考试助手，您需要提供欲查找答案的试题的题目作为前文中提到的 `title` 参数。由于使用了 `fuzzywuzzy` 库，马院考试助手支持模糊搜索，因此具有一定的容错性，可在 `title` 参数具有少量拼写错误的情况下查找到正确答案，但您仍应提供合适的参数——只包含完整的题目——以获得最佳的匹配效果。
+&emsp;&emsp;运行 `python .\myzxks_assistant.py` 命令来启动马院考试助手，马院考试助手将加载题库文件并监听 HTTP GET 请求，完整的 URL 是 `http://您的主机:25432/myzxks-assistant/search?title=题目`。为了正常使用马院考试助手，您需要提供欲查找答案的试题的题目作为前文中提到的 `title` 参数。由于使用了 `fuzzywuzzy` 库，马院考试助手支持模糊搜索，因此具有一定的容错性，可在 `title` 参数具有少量拼写错误的情况下查找到正确答案，但您仍应提供合适的参数——只包含完整的题目——以获得最佳的匹配效果。
 
 ## 啰嗦！根本不用那么费事儿
 
@@ -40,7 +40,7 @@
 
 &emsp;&emsp;如果是 **`FV 悬浮球` 的自定义任务**，编辑它并修改 `useAlternate` 变量为 `布尔值`——`真` 以切换至备用服务器，但不要指望备用服务器时刻都能用，因为那是我家里的设备（还请不要攻击，包括主服务器，那是阿里云便宜学生机）。
 
-&emsp;&emsp;如果是 **iOS 平台的快捷指令**，~~**自求多福**。新冠病毒祸害人，我们已经封校大概一学期了，而我的 `二手 iPhone SE | 破损不堪` 此刻正静静地躺在家里的抽屉中，等我下学期再有马院考试的时候才会更新。~~ 修改请求地址为 `https://nas.hollisdevhub.com:5000/projects/myzxks-assistant/search?title=`。这是临时的解决方案，以后会更新快捷指令。
+&emsp;&emsp;如果是 **iOS 平台的快捷指令**，~~**自求多福**。新冠病毒祸害人，我们已经封校大概一学期了，而我的 `二手 iPhone SE | 破损不堪` 此刻正静静地躺在家里的抽屉中，等我下学期再有马院考试的时候才会更新。~~ 修改请求地址为 `https://nas.hollisdevhub.com:25432/projects/myzxks-assistant/search?title=`。这是临时的解决方案，以后会更新快捷指令。
 
 #### 可它两个服务器全都不好使
 
