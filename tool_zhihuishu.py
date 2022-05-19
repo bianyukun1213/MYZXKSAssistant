@@ -30,7 +30,10 @@ if len(args) == 3:
         detail_url = DETAIL_URL.replace('<COURSE_ID>', course_id).replace(
             '<UUID>', uuid).replace('<QUESTION_ID>', str(exercise['exerciseId'])).replace('<TIMES>', str(exercise_times))
         detail = requests.get(detail_url).json()['rt']
-        details.append(detail)
+        if detail == None:
+            print('跳过习题 %d 的录入：接口返回结果为空，习题可能已被删除。' % exercise['exerciseId'])
+        else:
+            details.append(detail)
         time.sleep(1)
     print('采集完成，正在保存……')
     save_path = os.path.split(os.path.realpath(sys.argv[0]))[
