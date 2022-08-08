@@ -57,8 +57,8 @@ if(__name__ == '__main__'):
     print('%s 条数据已加载，即将运行服务。' % len(loaded))
     app.config['SERVER_NAME'] = 'hollisdevhub.com:25432'
     if env == 'SERVER':
-        app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\6235432_apps.hollisdevhub.com.pem',
-                'D:\\SSLCerts\\6235432_apps.hollisdevhub.com.key'))
+        app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\8249391_apps.hollisdevhub.com.pem',
+                'D:\\SSLCerts\\8249391_apps.hollisdevhub.com.key'))
     else:
         app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\7172095_nas.hollisdevhub.com.pem',
                                              'D:\\SSLCerts\\7172095_nas.hollisdevhub.com.key'))
