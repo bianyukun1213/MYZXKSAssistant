@@ -8,8 +8,8 @@ from fuzzywuzzy import process
 import flask
 from flask import request, jsonify
 
-env = 'SERVER'
-# env = 'NAS'
+# env = 'SERVER'
+env = 'NAS'
 
 app = flask.Flask(__name__)
 
@@ -60,5 +60,5 @@ if(__name__ == '__main__'):
         app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\8249391_apps.hollisdevhub.com.pem',
                 'D:\\SSLCerts\\8249391_apps.hollisdevhub.com.key'))
     else:
-        app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\7172095_nas.hollisdevhub.com.pem',
-                                             'D:\\SSLCerts\\7172095_nas.hollisdevhub.com.key'))
+        app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\9069964_nas.hollisdevhub.com.pem',
+                                             'D:\\SSLCerts\\9069964_nas.hollisdevhub.com.key'))
