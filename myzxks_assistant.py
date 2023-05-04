@@ -49,6 +49,9 @@ if(__name__ == '__main__'):
     container = os.environ.get('CONTAINER')
     if(container != '1'):
         data_path = os.path.split(os.path.realpath(sys.argv[0]))[0] + data_path
+        print('环境变量“CONTAINER”未设置，数据目录：%s。' % data_path)
+    else:
+        print('环境变量“CONTAINER”已设置，数据目录：%s。' % data_path)
     # print('当前环境：%s。' % env)
     # script_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
     # with open(script_path+'\data.json', 'r', encoding='utf-8') as f:
