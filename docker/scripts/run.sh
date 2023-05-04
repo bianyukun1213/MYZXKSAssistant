@@ -6,6 +6,11 @@ if [ ! -d ${homedir} ]; then
    mkdir -p ${homedir}
 fi
 rm -rf ${homedir}/*
+if [ ${HTTP_PROXY} ]; then
+	git config --global http.proxy ${HTTP_PROXY}
+else
+	git config --global --unset http.proxy
+fi
 git clone https://github.com/bianyukun1213/MYZXKSAssistant.git ${homedir}
 pip install -r ${homedir}/requirements.txt
 chown ${PUID}:${PGID} -R ${homedir}
