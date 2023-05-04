@@ -9,12 +9,13 @@ import flask
 from flask import request, jsonify
 
 # env = 'SERVER'
-env = 'NAS'
+# env = 'NAS'
 
 app = flask.Flask(__name__)
 
 
-@app.route('/projects/myzxks-assistant/search', methods=['GET'], subdomain='apps' if env == 'SERVER' else 'nas')
+# @app.route('/projects/myzxks-assistant/search', methods=['GET'], subdomain='apps' if env == 'SERVER' else 'nas')
+@app.route('/search', methods=['GET'])
 def search():
     if 'title' in request.args:
         arg_title = request.args['title'].strip()
@@ -44,9 +45,14 @@ def search():
 if(__name__ == '__main__'):
     print('欢迎使用 Hollis(his2nd.life) 的马院考试助手！')
     print('请访问 https://github.com/bianyukun1213/MYZXKSAssistant 阅读使用文档。')
-    print('当前环境：%s。' % env)
-    script_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
-    with open(script_path+'\data.json', 'r', encoding='utf-8') as f:
+    data_path = '/ma_data/data.json'
+    container = os.environ.get('CONTAINER')
+    if(container != '1'):
+        data_path = os.path.split(os.path.realpath(sys.argv[0]))[0] + data_path
+    # print('当前环境：%s。' % env)
+    # script_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
+    # with open(script_path+'\data.json', 'r', encoding='utf-8') as f:
+    with open(data_path, 'r', encoding='utf-8') as f:
         data = f.read()
     loaded = json.loads(data)
     titles = []
@@ -55,10 +61,11 @@ if(__name__ == '__main__'):
         titles.append(question['title'])
         answers.append(question['answer'])
     print('%s 条数据已加载，即将运行服务。' % len(loaded))
-    app.config['SERVER_NAME'] = 'hollisdevhub.com:25432'
-    if env == 'SERVER':
-        app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\8249391_apps.hollisdevhub.com.pem',
-                'D:\\SSLCerts\\8249391_apps.hollisdevhub.com.key'))
-    else:
-        app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\9069964_nas.hollisdevhub.com.pem',
-                                             'D:\\SSLCerts\\9069964_nas.hollisdevhub.com.key'))
+    # app.config['SERVER_NAME'] = 'hollisdevhub.com:25432'
+    # if env == 'SERVER':
+    #     app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\8249391_apps.hollisdevhub.com.pem',
+    #             'D:\\SSLCerts\\8249391_apps.hollisdevhub.com.key'))
+    # else:
+    #     app.run(host='0.0.0.0', ssl_context=('D:\\SSLCerts\\9069964_nas.hollisdevhub.com.pem',
+    #                                          'D:\\SSLCerts\\9069964_nas.hollisdevhub.com.key'))
+    app.run(host='0.0.0.0', port=8972)
