@@ -45,7 +45,10 @@ if(__name__ == '__main__'):
         arg1 = sys.argv[1]
     if(arg1 != '--container'):
         data_path = os.path.split(os.path.realpath(sys.argv[0]))[0] + data_path
-    print('数据文件：%s。' % data_path, file=sys.stdout)
+    print('从 %s 读取数据文件。' % data_path, file=sys.stdout)
+    if(os.path.isfile()):
+        print('数据文件不存在！', file=sys.stdout)
+        exit
     with open(data_path, 'r', encoding='utf-8') as f:
         data = f.read()
     loaded = json.loads(data)
