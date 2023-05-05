@@ -48,15 +48,15 @@
 
 智慧树（知到）：
 
-1. 登录智慧树网站，找到你的 `UUID`：在 Cookie 中找到包含 `exitRecod_` 字样的项目，`_` 后面的字符串就是 `UUID`；
-2. 进入相应课程，从 Url 获取 `courseId`；
+1. 登录智慧树网站，找到你的 UUID：在 Cookie 中找到包含 `exitRecod_` 字样的项目，`_` 后面的字符串就是 UUID；
+2. 进入相应课程，从 Url 获取 courseId；
 3. 运行 `tool_zhihuishu.py` 整理数据（假设你已将工作目录切换至 `tools`）：`python .\tool_zhihuishu.py <courseId> <UUID>`；
 4. 将生成的 `from_zhihuishu/output_<courseId>.json` 复制到 `inputs` 目录并重命名为 `input_zhihuishu_<科目>.json`；
 5. 同样运行 `tool.py` 整理数据，步骤不再阐述。
 
 ### Android 端使用
 
-&emsp;&emsp;马院考试助手仅仅为一个简易搜题 Web API，Android 平台下的交互部分由“FV 悬浮球”的“自定义任务”功能使实现。
+&emsp;&emsp;马院考试助手仅仅为一个简易搜题 Web API，Android 平台下的交互部分由“FV 悬浮球”的“自定义任务”功能实现。
 
 &emsp;&emsp;在 FV 悬浮球的任务分享平台搜索并安装 `USTH 马院考试搜题` 自定义任务，再安装 [简体中文识别库](https://github.com/bianyukun1213/MYZXKSAssistant#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E6%96%87%E5%AD%97) 即可。
 
@@ -72,6 +72,6 @@
 
 &emsp;&emsp;有些手机系统如 MIUI 会阻止 FV 悬浮球等第三方应用程序针对微信截图或共享屏幕，请放行。
 
-&emsp;&emsp;除此之外，这是一个已知问题。USTH 马院考试搜题使用了 FV 悬浮球自带的光学识别功能，有些时候，它就是不好使（我也不知道为什么），因此我添加了手动输入题目的对话框，您输入题目关键字即可。
+&emsp;&emsp;除此之外，这是一个已知问题。USTH 马院考试搜题使用了 FV 悬浮球自带的光学识别功能，有些时候，它就是不好使（我也不知道为什么），因此我添加了手动输入题目的对话框，如果识别失败，可手动输入题目关键字搜索。
 
-&emsp;&emsp;如果光学识别功能**始终**不好使，请检查 FV 悬浮球的 `设置`——`截图`——`自动文字识别` 项，确保 `类型` 设置为 `本地` 并启用了简体中文的文字识别库。
+&emsp;&emsp;如果光学识别功能始终不好使，请检查 FV 悬浮球的 `设置`——`截图`——`自动文字识别` 项，确保 `类型` 设置为 `本地` 并启用了简体中文的文字识别库。
