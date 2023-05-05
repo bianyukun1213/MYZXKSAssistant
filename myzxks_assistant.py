@@ -15,7 +15,7 @@ def search():
     if 'title' in request.args:
         arg_title = request.args['title'].strip()
         if arg_title == '':
-            return '缺失参数“title”！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
+            return '缺失 title！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
         print('收到格式正确的请求！', file=sys.stdout)
         print('---\n参数中的题目：\n%s' % arg_title, file=sys.stdout)
         global titles
@@ -34,7 +34,7 @@ def search():
                 break
         print('答案：\n%s\n---' % answer, file=sys.stdout)
         return ''.join([match_title, '\n---\n', answer]), 200, [('Content-Type', 'text/plain; charset=utf-8')]
-    return '缺失参数“title”！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
+    return '缺失 title！', 404, [('Content-Type', 'text/plain; charset=utf-8')]
 
 if(__name__ == '__main__'):
     print('欢迎使用 Hollis(his2nd.life) 的马院考试助手！', file=sys.stdout)
@@ -45,7 +45,7 @@ if(__name__ == '__main__'):
         arg1 = sys.argv[1]
     if(arg1 != '--container'):
         data_path = os.path.split(os.path.realpath(sys.argv[0]))[0] + data_path
-    print('从 %s 读取数据文件。' % data_path, file=sys.stdout)
+    print('从 %s 读取数据。' % data_path, file=sys.stdout)
     if(os.path.isfile(data_path) != True):
         print('数据文件不存在！', file=sys.stdout)
         sys.exit()
