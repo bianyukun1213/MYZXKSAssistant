@@ -2,10 +2,8 @@
 groupmod -o -g ${PGID} ma
 usermod -u ${PUID} ma
 homedir="/home/ma"
-if [ ! -d ${homedir} ]; then
-   mkdir -p ${homedir}
-fi
-rm -rf ${homedir}/*
+rm -rf ${homedir}
+mkdir ${homedir}
 if [ ${HTTP_PROXY} ]; then
    echo "HTTP_PROXY=${HTTP_PROXY}"
 	git config --global http.proxy ${HTTP_PROXY}
