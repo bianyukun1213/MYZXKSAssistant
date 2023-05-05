@@ -64,7 +64,7 @@
 
 ## 疑难杂症
 
-### 安装 `python-Levenshtein` 时报错
+### 安装 python-Levenshtein 时报错
 
 &emsp;&emsp;先安装 Microsoft Visual C++ 14.0，然后再次尝试。如果仍然报错，安装 Windows 10 SDK（可与 Microsoft Visual C++ 14.0 一同在 [Visual Studio 2022 生成工具](https://visualstudio.microsoft.com/zh-hans/downloads/) 里安装），然后按照 [这里](https://blog.csdn.net/kaever/article/details/106526610) 记录的操作复制两个文件，再次尝试。
 
