@@ -48,7 +48,7 @@ if(__name__ == '__main__'):
     print('从 %s 读取数据文件。' % data_path, file=sys.stdout)
     if(os.path.isfile(data_path) != True):
         print('数据文件不存在！', file=sys.stdout)
-        exit
+        sys.exit()
     with open(data_path, 'r', encoding='utf-8') as f:
         data = f.read()
     loaded = json.loads(data)
