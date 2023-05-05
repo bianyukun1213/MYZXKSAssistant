@@ -46,13 +46,10 @@ if(__name__ == '__main__'):
     print('欢迎使用 Hollis(his2nd.life) 的马院考试助手！')
     print('请访问 https://github.com/bianyukun1213/MYZXKSAssistant 阅读使用文档。')
     data_path = '/ma_data/data.json'
-    container = os.environ.get('CONTAINER')
-    print(container)
-    if(container != '1'):
+    arg1 = sys.argv[1]
+    if(arg1 != '--container'):
         data_path = os.path.split(os.path.realpath(sys.argv[0]))[0] + data_path
-        print('环境变量“CONTAINER”未设置，数据目录：%s。' % data_path)
-    else:
-        print('环境变量“CONTAINER”已设置，数据目录：%s。' % data_path)
+    print('数据文件：%s。' % data_path)
     # print('当前环境：%s。' % env)
     # script_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
     # with open(script_path+'\data.json', 'r', encoding='utf-8') as f:

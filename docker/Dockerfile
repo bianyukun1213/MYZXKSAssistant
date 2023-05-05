@@ -6,8 +6,7 @@ LABEL org.opencontainers.image.authors="HeyHollis" \
 ENV PUID=99 \
     PGID=100 \
     UMASK=000 \
-    TZ=Asia/Shanghai \
-    CONTAINER=1
+    TZ=Asia/Shanghai
 EXPOSE 8972
 VOLUME /ma_data
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
