@@ -33,7 +33,7 @@
 1. 拉取镜像：`docker push heyhollis/myzxks-assistant:latest`；
 2. 运行容器：`docker run -v /<主机数据路径>:/ma_data -v /<主机日志路径>:/ma_log -p <主机监听端口>:8972 -e HTTP_PROXY=<网络代理地址>`。
 
-&emsp;&emsp;此外，还可附加 `PUID`、`PGID`、`TZ` 等参数，具体见 `docker/Dockerfile`。
+&emsp;&emsp;此外，还可附加 `PUID`、`PGID`、`TZ` 等环境变量，具体见 `docker/Dockerfile`。
 
 &emsp;&emsp;查询 Url 是 `http://<主机>:<主机监听端口>/search?title=<题目>`。
 
