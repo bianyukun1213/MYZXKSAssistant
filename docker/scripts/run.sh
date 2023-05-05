@@ -13,7 +13,11 @@ else
 	git config --global --unset http.proxy
 fi
 git clone https://github.com/bianyukun1213/MYZXKSAssistant.git ${homedir}
-pip install -r ${homedir}/requirements.txt
+if [ ${HTTP_PROXY} ]; then
+   pip install --proxy ${HTTP_PROXY} -r ${homedir}/requirements.txt
+else
+	pip install -r ${homedir}/requirements.txt
+fi
 chown ${PUID}:${PGID} -R ${homedir}
 chown ${PUID}:${PGID} -R /ma_data
 umask ${UMASK}
