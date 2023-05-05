@@ -58,11 +58,12 @@
 
 &emsp;&emsp;马院考试助手仅仅为一个简易搜题 Web API，Android 平台下的交互部分由“FV 悬浮球”的“自定义任务”功能使实现。
 
-&emsp;&emsp;在 FV 悬浮球的任务分享平台搜索并安装 `USTH 马院考试搜题` 自定义任务，再安装 [简体中文识别库](https://github.com/bianyukun1213/MYZXKSAssistant#usth-%E9%A9%AC%E9%99%A2%E8%80%83%E8%AF%95%E6%90%9C%E9%A2%98-%E6%97%A0%E6%B3%95%E6%88%90%E5%8A%9F%E8%AF%86%E5%88%AB%E5%B1%8F%E5%B9%95%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97) 即可。
+&emsp;&emsp;在 FV 悬浮球的任务分享平台搜索并安装 `USTH 马院考试搜题` 自定义任务，再安装 [简体中文识别库](https://github.com/bianyukun1213/MYZXKSAssistant#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E6%96%87%E5%AD%97) 即可。
 
 &emsp;&emsp;使用前需填入查询 Url。
 
 ## 疑难杂症
+
 ### 安装 `python-Levenshtein` 时报错
 
 &emsp;&emsp;先安装 Microsoft Visual C++ 14.0，然后再次尝试。如果仍然报错，安装 Windows 10 SDK（可与 Microsoft Visual C++ 14.0 一同在 [Visual Studio 2022 生成工具](https://visualstudio.microsoft.com/zh-hans/downloads/) 里安装），然后按照 [这里](https://blog.csdn.net/kaever/article/details/106526610) 记录的操作复制两个文件，再次尝试。
