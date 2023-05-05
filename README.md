@@ -76,6 +76,6 @@
 
 &emsp;&emsp;如果光学识别功能始终不好使，请检查 FV 悬浮球的 `设置`——`截图`——`自动文字识别` 项，确保 `类型` 设置为 `本地` 并启用了简体中文的文字识别库。
 
-### 如何支持 HTTPS？
+### 如何支持 HTTPS
 
 &emsp;&emsp;参考 [以前的版本](https://github.com/bianyukun1213/MYZXKSAssistant/blob/6281effb33f972ab00aeb4eb714bd31b3a23c5ff/myzxks_assistant.py) 修改代码，添加证书。或者使用反向代理。
