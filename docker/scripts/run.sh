@@ -1,6 +1,6 @@
 #!/bin/bash
-groupmod -o -g "${PGID}" ma
-usermod -u "${PUID}" ma
+groupmod -o -g ${PGID} ma
+usermod -u ${PUID} ma
 homedir="/home/ma"
 if [ ! -d ${homedir} ]; then
    mkdir -p ${homedir}
