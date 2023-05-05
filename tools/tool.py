@@ -81,5 +81,5 @@ for file_path in files:
             question['title'] = pattern.sub('', html.unescape(element['content']))
         lst.append(question)
 final = json.dumps(lst, ensure_ascii=False, indent=4)
-with open(script_path+'\data.json', 'w', encoding='utf-8') as a:
+with open(script_path+'\output.json', 'w', encoding='utf-8') as a:
     a.write(final)
