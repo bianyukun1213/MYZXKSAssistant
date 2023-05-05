@@ -8,7 +8,7 @@ ENV PUID=99 \
     UMASK=000 \
     TZ=Asia/Shanghai
 EXPOSE 8972
-VOLUME /ma_data
+VOLUME /ma_data /ma_log
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo ${TZ} > /etc/timezone && \
     groupadd -g 9981 ma && \
