@@ -11,8 +11,7 @@
 - Python；
 - Microsoft Visual C++ 14.0（见 [疑难杂症](https://github.com/bianyukun1213/MYZXKSAssistant#%E5%AE%89%E8%A3%85-python-levenshtein-%E6%97%B6%E6%8A%A5%E9%94%99)）；
 - Git；
-- 反向代理（可选）。
-- 网络代理（可选）。
+- 网络代理（非必需）。
 
 步骤：
 
@@ -27,8 +26,7 @@
 前置条件：
 
 - 容器平台（以 Docker 为例）；
-- 反向代理（可选）。
-- 网络代理（可选）。
+- 网络代理（非必需）。
 
 步骤：
 
