@@ -47,6 +47,7 @@ if(__name__ == '__main__'):
     print('请访问 https://github.com/bianyukun1213/MYZXKSAssistant 阅读使用文档。')
     data_path = '/ma_data/data.json'
     container = os.environ.get('CONTAINER')
+    print(container)
     if(container != '1'):
         data_path = os.path.split(os.path.realpath(sys.argv[0]))[0] + data_path
         print('环境变量“CONTAINER”未设置，数据目录：%s。' % data_path)
