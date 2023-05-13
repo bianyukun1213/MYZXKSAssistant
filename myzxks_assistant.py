@@ -11,6 +11,10 @@ from loguru import logger
 
 app = flask.Flask(__name__)
 
+@app.route('/ping', methods=['GET'])
+def pong():
+    return 'Pong!', 200, [('Content-Type', 'text/plain; charset=utf-8')]
+
 @app.route('/search', methods=['GET'])
 def search():
     if 'title' in request.args:
