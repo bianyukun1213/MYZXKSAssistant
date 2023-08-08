@@ -17,12 +17,21 @@ if [ ${HTTP_PROXY} ]; then
 else
 	git config --global --unset http.proxy
 fi
+if [ ${HTTPS_PROXY} ]; then
+   echo "HTTPS_PROXY=${HTTPS_PROXY}"
+	git config --global https.proxy ${HTTPS_PROXY}
+else
+	git config --global --unset https.proxy
+fi
 git clone https://github.com/bianyukun1213/MYZXKSAssistant.git ${homedir}
 
+pipproxy=""
 if [ ${HTTP_PROXY} ]; then
-   pip install --proxy ${HTTP_PROXY} -r ${homedir}/requirements.txt
-else
-	pip install -r ${homedir}/requirements.txt
+   pipproxy="--proxy ${HTTP_PROXY}"
 fi
+if [ ${HTTPS_PROXY} ]; then
+   pipproxy="--proxy ${HTTPS_PROXY}"
+fi
+pip ${pipproxy} install -r ${homedir}/requirements.txt
 
 python ${homedir}/myzxks_assistant.py --container

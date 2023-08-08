@@ -30,8 +30,7 @@
 
 步骤：
 
-1. 拉取镜像：`docker push heyhollis/myzxks-assistant:latest`；
-2. 运行容器：`docker run -v <主机数据路径>:/ma_data -v <主机日志路径>:/ma_log -p <主机监听端口>:8972 -e HTTP_PROXY=<网络代理地址>`。
+1. 拉取并运行容器：`docker run -d -v <主机数据路径>:/ma_data -v <主机日志路径>:/ma_log -p <主机监听端口>:8972 -e HTTP_PROXY=<HTTP 代理地址> -e HTTPS_PROXY=<HTTPS 代理地址> heyhollis/myzxks-assistant:latest`。
 
 &emsp;&emsp;此外，还可附加 `PUID`、`PGID`、`TZ` 等环境变量，具体见 `docker/Dockerfile`。
 
