@@ -9,7 +9,7 @@
 前置条件：
 
 - Python；
-- Microsoft Visual C++ 14.0（见 [疑难杂症](https://github.com/bianyukun1213/MYZXKSAssistant#%E5%AE%89%E8%A3%85-python-levenshtein-%E6%97%B6%E6%8A%A5%E9%94%99)）；
+- Microsoft Visual C++ 14.0（见[疑难杂症](https://github.com/bianyukun1213/MYZXKSAssistant#%E5%AE%89%E8%A3%85-python-levenshtein-%E6%97%B6%E6%8A%A5%E9%94%99)）；
 - Git；
 - 网络代理（非必需）。
 
@@ -40,7 +40,7 @@
 
 微信小程序：
 
-1. 使用 Fiddler 抓取数据，具体方法不阐述；
+1. 使用 Fiddler 抓取数据，具体方法不赘述；
 2. 提取数据中的 `text` 部分，删去用户信息仅保留题目，将单选题、多选题及判断题合并为一个 JSON 文件，命名为 `input_<科目>.json`，具体数据格式见 `tools/inputs` 下的示例；
 3. 运行 `tool.py` 整理数据（假设你已将工作目录切换至 `tools`）：`python .\tool.py`；
 4. 将生成的 `output.json` 复制到 `ma_data` 目录并重命名为 `data.json`。
@@ -57,7 +57,7 @@
 
 &emsp;&emsp;马院考试助手仅仅为一个简易搜题 Web API，Android 平台下的交互部分由“FV 悬浮球”的“自定义任务”功能实现。
 
-&emsp;&emsp;在 FV 悬浮球的任务分享平台搜索并安装 `USTH 马院考试搜题` 自定义任务，再安装 [简体中文识别库](https://github.com/bianyukun1213/MYZXKSAssistant#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E6%96%87%E5%AD%97) 即可。
+&emsp;&emsp;在 FV 悬浮球的任务分享平台搜索并安装 `USTH 马院考试搜题` 自定义任务，再安装[简体中文识别库](https://github.com/bianyukun1213/MYZXKSAssistant#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E6%96%87%E5%AD%97)即可。
 
 &emsp;&emsp;使用前需填入查询 Url。
 
@@ -65,7 +65,7 @@
 
 ### 安装 python-Levenshtein 时报错
 
-&emsp;&emsp;先安装 Microsoft Visual C++ 14.0，然后再次尝试。如果仍然报错，安装 Windows 10 SDK（可与 Microsoft Visual C++ 14.0 一同在 [Visual Studio 2022 生成工具](https://visualstudio.microsoft.com/zh-hans/downloads/) 里安装），然后按照 [这里](https://blog.csdn.net/kaever/article/details/106526610) 记录的操作复制两个文件，再次尝试。
+&emsp;&emsp;先安装 Microsoft Visual C++ 14.0，然后再次尝试。如果仍然报错，安装 Windows 10 SDK（可与 Microsoft Visual C++ 14.0 一同在 [Visual Studio 2022 生成工具](https://visualstudio.microsoft.com/zh-hans/downloads/)里安装），然后按照[这里](https://blog.csdn.net/kaever/article/details/106526610)记录的操作复制两个文件，再次尝试。
 
 ### 自定义任务无法识别屏幕上的文字
 
@@ -77,4 +77,4 @@
 
 ### HTTPS 与路由
 
-&emsp;&emsp;如需支持 HTTPS 或修改路由，可参考 [以前的版本](https://github.com/bianyukun1213/MYZXKSAssistant/blob/6281effb33f972ab00aeb4eb714bd31b3a23c5ff/myzxks_assistant.py) 修改代码，或者使用反向代理。
+&emsp;&emsp;如需支持 HTTPS 或修改路由，可参考[以前的版本](https://github.com/bianyukun1213/MYZXKSAssistant/blob/6281effb33f972ab00aeb4eb714bd31b3a23c5ff/myzxks_assistant.py)修改代码，或者使用反向代理。
